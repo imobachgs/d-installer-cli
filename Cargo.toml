@@ -1,5 +1,6 @@
 [workspace]
 
 members = [
+  "d-installer-cli",
   "d-installer-lib"
 ]
