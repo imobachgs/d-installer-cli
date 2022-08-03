@@ -143,8 +143,20 @@ impl<'a> LanguageClient<'a> {
         Ok(languages)
     }
 
-    pub fn select(&self, lang_id: &str) -> Result<(), Error> {
+    pub fn select(&self, lang_ids: Vec<&str>) -> Result<(), Error> {
         let proxy = Language1Proxy::new(&self.connection)?;
-        proxy.to_install(&[lang_id])
+        proxy.to_install(&lang_ids)
+    }
+
+    pub fn selected(&self) -> Result<Vec<Language>, Error> {
+        let proxy = Language1Proxy::new(&self.connection)?;
+        let selected_languages = proxy.marked_for_install()?;
+        let available_languages = self.available_languages()?;
+
+        let languages = available_languages
+            .into_iter()
+            .filter(|l| selected_languages.contains(&l.id))
+            .collect();
+        Ok(languages)
     }
 }

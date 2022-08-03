@@ -37,7 +37,7 @@ pub enum LanguageCommands {
     /// List available languages for installation
     Available,
     /// Select the language to install in the target system
-    Select { lang: String },
+    Select { langs: Vec<String> },
 }
 
 #[derive(Args, Debug)]
