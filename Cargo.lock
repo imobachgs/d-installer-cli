@@ -200,10 +200,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "country-emoji"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d93ed3c15fd433a3e8f7e52e70968113d4cd572d84a9454d1899f64c72872f02"
+dependencies = [
+ "lazy_static",
+ "regex",
+]
+
+[[package]]
 name = "d-installer-cli"
 version = "0.1.0"
 dependencies = [
  "clap",
+ "country-emoji",
  "d-installer-lib",
 ]
 
