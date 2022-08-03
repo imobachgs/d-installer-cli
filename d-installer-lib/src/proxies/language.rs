@@ -20,7 +20,7 @@
 use zbus::dbus_proxy;
 
 #[dbus_proxy(
-    default_service = "org.opensuse.DInstaller",
+    default_service = "org.opensuse.DInstaller.Language",
     interface = "org.opensuse.DInstaller.Language1",
     default_path = "/org/opensuse/DInstaller/Language1",
     gen_async = false,
